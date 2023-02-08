@@ -1,0 +1,39 @@
+open ssl ile csr oluşturma :
+
+1. request template oluştur
+[req]
+		distinguished_name = req_distinguished_name
+	**	req_extensions = v3_req
+		prompt = no
+		[req_distinguished_name]
+		C = Country Letter Code
+		ST = State or Province
+		L = City
+		O = Company Name Inc.
+		OU = Division Name Inc.
+		CN = CommonName.Domain.TLD
+	**	[v3_req]
+	**	keyUsage = keyEncipherment, dataEncipherment
+	**	extendedKeyUsage = serverAuth
+	**	subjectAltName = @alt_names
+	**	[alt_names]
+	**	DNS.1 = AlternateHostName1.Domain.TLD
+	**	DNS.2 = AlternateHostName2.Domain.TLD
+san.cfg olarak kaydet		
+
+2 Generate the certificate request (CSR) based on your SAN template:
+
+openssl req -new -out hostname.domain.tld.csr -newkey rsa:2048 -nodes -sha256 -keyout hostname.domain.tld.key -config san.cnf
+
+3. validate your csr 
+
+openssl req -text -noout -verify -in hostname.domain.tld.csr
+
+4. send to autority 
+
+
+ ************GELEN SERTİFİKADAN PFX ÜRETİLMESİ*****************
+ 
+ openssl pkcs12 -export -out int_trt_net_tr.pfx -inkey sistem_int.key  -in STAR_int_trt_net_tr.crt -certfile CAchain.pem
+
+

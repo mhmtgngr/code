@@ -1,0 +1,17 @@
+Distinguished Name : DC=int,DC=trt,DC=net,DC=tr
+user name @int.trt.net.tr    ------- ldaps 
+
+ilgili sertifika işlenmesi
+
+1-- sertifikanın ldap serverdan çekilmesi 
+	openssl s_client -connect TRTS06DC01:636 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'
+	
+2-- sertifikanın ubuntu için ilgili lokasyona yerleştirilmesi
+	a) Assuming a PEM-formatted root CA certificate is in local-ca.crt, follow the steps below to install it.
+
+Note: It is important to have the .crt extension on the file, otherwise it will not be processed.
+
+$ sudo apt-get install -y ca-certificates
+$ sudo cp local-ca.crt /usr/local/share/ca-certificates
+$ sudo update-ca-certificates
+    b )jxexplorer  için security tabında import certificate var --certificate cahinleri yönetmke için  default password changeit
