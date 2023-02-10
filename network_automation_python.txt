@@ -1,0 +1,43 @@
+******************virtual enviorement***********
+
+py -V
+py -m venv sample_venv
+sample_venv
+py -m venv venv  -- conversition
+py -m venv jupyter_venv
+dir /ls  ilgili klasörü listele
+cd jupyter_venv\Scripts  ... içinde activate pip pip3 python 
+activate .. activate env
+pip freeze   -----kullanılan compenentları listeler
+pip install jupyter ------ install components
+pip freeze > requirements.txt   --- requirements txt oluşturmak
+
+
+
+******  modules  ************
+
+pip3 install black /// python3 -m pip install black
+
+import <module> / syntax  ----- 
+
+
+from <module> import <method|*> 
+--> agregates name space ,overlapping names, less clarity
+
+pyhton3.8 -m venv venv  /same path in .py applicataion    *** tree -L 1  // tree view of folder ****
+virtual enviorement actif edilmeli  activate -->   source  venv/bin/activate
+pip freeze --- see installed ones
+pip install -r requirements.txt  <---  
+
+
+Variables & Assignments           Control Structures     
+Data Structures                         If/Then
+     Lists                              Iteration(for loops)
+     Tuples                       Pattern Matching
+     Dictionaries                 Pyhton Truth
+     Sets
+Input/Output
+Fies
+
+********script basics*************
+
